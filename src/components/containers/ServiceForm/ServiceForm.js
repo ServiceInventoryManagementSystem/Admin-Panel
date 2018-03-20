@@ -12,17 +12,17 @@ import MenuItem from 'material-ui/MenuItem';
 
 
 
-{/*
+/*{/!*
       <div className={_s.relatedParty}>
         <TextField onChange={(e,v)=> this.onFieldChange("role", v)} value={this.state.formValues.role} hintText="Enter role..." floatingLabelText="Role"/><br></br>
         <TextField onChange={(e,v)=> this.onFieldChange("id", v)} value={this.state.formValues.id} hintText="Enter id..." floatingLabelText="ID"/><br></br>
         <TextField onChange={(e,v)=> this.onFieldChange("href", v)} value={this.state.formValues.href} hintText="Enter href..." floatingLabelText="HREF"/><br></br>
       </div>
-*/}
+*!/}
 
 
-        {/********************************************** DATES, MODES, STATE ************************************/
-/*
+        {/!********************************************** DATES, MODES, STATE ************************************!/
+/!*
         <h3>Order date</h3>
         <h3>Order date</h3>
         <DatePicker hintText="Order date" />
@@ -30,13 +30,13 @@ import MenuItem from 'material-ui/MenuItem';
         <DatePicker hintText="Start date" />
 
         <h3>End date</h3>
-        <DatePicker className={_s.formtext} hintText="End date" /><br></br>*/
+        <DatePicker className={_s.formtext} hintText="End date" /><br></br>*!/
 
-        {/********************************************** LISTS, TYPES ETC. **************************************/}
-/*
+        {/!********************************************** LISTS, TYPES ETC. **************************************!/}
+/!*
         <br></br><TextField className={_s.formtext} hintText="Resource type..." floatingLabelText="Type"/>
         <br></br><TextField className={_s.formtext} hintText="Service order..." floatingLabelText="Service Order Ref"/>
-        <br></br><TextField className={_s.formtext} hintText="Service order..." floatingLabelText="Service Order Ref"/>*/
+        <br></br><TextField className={_s.formtext} hintText="Service order..." floatingLabelText="Service Order Ref"/>*!/*/
 
 export class ServiceForm extends Component {
     constructor(props){
