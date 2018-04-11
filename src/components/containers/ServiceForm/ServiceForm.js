@@ -171,19 +171,23 @@ export class ServiceForm extends Component {
             <h1 className={_s.header}> Add New Service</h1>
 
             <div className={_s.formtext}>
-              <TextField onChange={(e,v)=> this.onFieldChange("href", v)} value={this.state.formValues.href} hintText="Reference of the service..." floatingLabelText="HREF"/>
+              <TextField onChange={(e,v)=> this.onFieldChange("href", v)} 
+              value={this.state.formValues.href} hintText="Reference of the service..." floatingLabelText="HREF"/>
             </div>
 
             <div className={_s.formtext}>
-              <TextField onChange={(e,v)=> this.onFieldChange("category", v)} value={this.state.formValues.category} hintText="Enter category..." floatingLabelText="Category"/>
+              <TextField onChange={(e,v)=> this.onFieldChange("category", v)} 
+              value={this.state.formValues.category} hintText="Enter category..." floatingLabelText="Category"/>
             </div>
 
             <div className={_s.formtext}>
-              <TextField onChange={(e,v)=> this.onFieldChange("name", v)} value={this.state.formValues.name} errorText={this.state.formValues.nameError} hintText="Enter name..." floatingLabelText="Name"/>
+              <TextField onChange={(e,v)=> this.onFieldChange("name", v)} 
+              value={this.state.formValues.name} errorText={this.state.formValues.nameError} hintText="Enter name..." floatingLabelText="Name"/>
             </div>
 
             <div className={_s.formtext}>
-              <TextField onChange={(e,v)=> this.onFieldChange("description", v)} value={this.state.formValues.description} hintText="Description of the service..." floatingLabelText="Description" multiLine={true} rows={1}/>
+              <TextField onChange={(e,v)=> this.onFieldChange("description", v)} 
+              value={this.state.formValues.description} hintText="Description of the service..." floatingLabelText="Description" multiLine={true} rows={1}/>
             </div>
 
             <div className={_s.divider}>
@@ -191,13 +195,19 @@ export class ServiceForm extends Component {
             </div>
 
             <div className={_s.toggle}>
-              <Toggle iconStyle={{marginLeft: '0px'}} labelStyle={{width: '50%' }}  onChange={(e,v) => this.onFieldChange("isServiceEnabled", v)} value={this.state.formValues.isServiceEnabled} label="Is the service enabled?" />
+              <Toggle iconStyle={{marginLeft: '0px'}} labelStyle={{width: '50%' }}  
+              onChange={(e,v) => this.onFieldChange("isServiceEnabled", v)} 
+              value={this.state.formValues.isServiceEnabled} label="Is the service enabled?" />
             </div>
             <div className={_s.toggle}>
-              <Toggle iconStyle={{marginLeft: '0px'}} labelStyle={{width: '50%' }} onChange={(e,v)=> this.onFieldChange("hasStarted", v)} value={this.state.formValues.hasStarted} label="Has the service started?" />
+              <Toggle iconStyle={{marginLeft: '0px'}} labelStyle={{width: '50%' }} 
+              onChange={(e,v)=> this.onFieldChange("hasStarted", v)} 
+              value={this.state.formValues.hasStarted} label="Has the service started?" />
             </div>
             <div className={_s.toggle}>
-              <Toggle iconStyle={{marginLeft: '0px'}} labelStyle={{width: '50%' }} onChange={(e,v)=> this.onFieldChange("isStateful", v)} value={this.state.formValues.isStateful} label="Can this service be changed without affecting any other service?"/>
+              <Toggle iconStyle={{marginLeft: '0px'}} labelStyle={{width: '50%' }} 
+              onChange={(e,v)=> this.onFieldChange("isStateful", v)} 
+              value={this.state.formValues.isStateful} label="Can this service be changed without affecting any other service?"/>
             </div>
 
             <div className={_s.divider}>
@@ -239,7 +249,7 @@ export class ServiceForm extends Component {
             <div className={_s.submit}>
               <RaisedButton onClick={()=> {
                 this.submitService();
-              }}  label="Sbmit" primary={true} disabled={!isEnabled}/>
+              }}  label="Submit" primary={true} disabled={!isEnabled}/>
               {this.state.success ? <Redirect to="/services" /> : null}
             </div>
           </MuiThemeProvider>
