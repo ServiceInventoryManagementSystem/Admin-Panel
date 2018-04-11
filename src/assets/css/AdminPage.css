@@ -230,5 +230,6 @@ table{
 }
 
 .state-feasibilityChecked, .state-designed, .state-reserved{
-  background-color: #0A72CC;
+  color: #0A72CC;
+  font-weight: bold;
 }
