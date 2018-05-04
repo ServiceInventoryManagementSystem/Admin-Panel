@@ -52,7 +52,7 @@ export class AdminPage extends Component {
     }
     componentDidMount(){
       this.querySubject.debounceTime(300).distinctUntilChanged().subscribe((a)=> {
-        this.props.imService.search(a).subscribe((services) => {
+        this.props.imService.search({name : a}).subscribe((services) => {
           this.setState({
             services: services
           });
@@ -80,16 +80,24 @@ export class AdminPage extends Component {
         });
     }
 
-    changeSorting(){
+    changeSorting(type){
       let serviceState = this.state.services;
+      
+      let order = this.state.sortingOrder;
+      if (this.state.lastColumn != type){
+        order = "asc"
+      }
+      
       serviceState.sort((a,b)=> {
-        if(this.state.sortingOrder != "asc"){
-          return a.state.localeCompare(b.state);
+        a = a[type] ? a[type] : "";
+        b = b[type] ? b[type] : "";
+        if(order != "decs"){
+          return a.localeCompare(b);
         }
-        return b.state.localeCompare(a.state);
+        return b.localeCompare(a);
       })
         
-      this.setState({services : serviceState, sortingOrder: this.state.sortingOrder != "asc" ? "asc" : "decs"});
+      this.setState({services : serviceState, lastColumn: type, sortingOrder: order != "asc" ? "asc" : "decs"});
 
 
     }
@@ -137,7 +145,7 @@ export class AdminPage extends Component {
 
 
     onChange(value){
-      this.querySubject.next(value);
+      this.querySubject.next(value); // må gjøre så category funker, eget parameter eller objekt
     }
 
     clearError(){
@@ -173,13 +181,20 @@ export class AdminPage extends Component {
         )
       }
 
+      let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
       return (
         <Paper className={_s["paper-container"]}>
           <MuiThemeProvider muiTheme={muiTheme}>
           <h1>Services</h1>
           <TextField 
             onChange = {(e, v)=> this.onChange(v)}
-            hintText="Search"
+            hintText="Search on Name"
+          />
+          <br/>
+          <TextField 
+            onChange = {(e, v)=> this.onChange(v)}
+            hintText="Search on Category"
           />
 
           <RaisedButton className={_s.deleteAll} onClick={ () => {
@@ -194,15 +209,20 @@ export class AdminPage extends Component {
           <Table allRowsSelected = {false} onCellClick = {(row)=> this.handleClickTable(this.state.services[row])}>
             <TableHeader>
               <TableRow onCellClick={(event,_,idx) => {
-                  if(idx == 6){
-                  this.changeSorting();
-                }}}>
+                const columns = {
+                  [6]: "state",
+                  [5]: "category",                   
+                }
+                if(idx in columns){
+                  this.changeSorting(columns[idx]);
+                }
+              }}>
                     <TableHeaderColumn>ID</TableHeaderColumn>
                     <TableHeaderColumn>Name</TableHeaderColumn>
                     <TableHeaderColumn>href</TableHeaderColumn>
                     <TableHeaderColumn>Has started</TableHeaderColumn>
                     <TableHeaderColumn>Category</TableHeaderColumn>
-                    <TableHeaderColumn onCellClick= {()=>{this.changeSorting()}}>State</TableHeaderColumn>
+                    <TableHeaderColumn>State</TableHeaderColumn>
                 </TableRow>
             </TableHeader>
             
@@ -233,9 +253,9 @@ export class AdminPage extends Component {
           
           >
             Description: {this.state.selected.description} <br/>
-            Order date: {this.state.selected.orderDate}<br/>
-            Start date: {this.state.selected.startDate}<br/>
-            End date: {this.state.selected.endDate}<br/>
+            Order date: {this.state.selected.orderDate ? this.state.selected.orderDate.toLocaleDateString('en-US', options) : "None"}<br/>
+            Start date: {this.state.selected.startDate ? this.state.selected.startDate.toLocaleDateString('en-US', options) : "None"}<br/>
+            End date: {this.state.selected.endDate ? this.state.selected.endDate.toLocaleDateString('en-US', options): "None"}<br/>
             Start mode: {this.state.selected.startMode}<br/>
             Is stateful: {this.state.selected.isStateful ? 'Yes' : 'No'}<br/>
             Is service enabled: {this.state.selected.isServiceEnabled ? 'Yes' : 'No'} <br/>

@@ -11,6 +11,8 @@ export class ManagedService{
     this.category = data.category;
     this.description = data.description;
     this.endDate = data.endDate ? new Date(data.endDate) : null;
+    this.startDate = data.startDate ? new Date(data.startDate) : null;
+    this.orderDate = data.orderDate ? new Date(data.orderDate) : null;
     this.hasStarted = data.hasStarted;
     this.isStateful = data.isStateful;
     this.isServiceEnabled = data.isServiceEnabled;
@@ -78,6 +80,8 @@ export class ManagedService{
       category:  this.category,
       description:  this.description,
       endDate:  this.endDate,
+      startDate: this.startDate,
+      orderDate: this.orderDate,
       hasStarted:  this.hasStarted,
       isStateful:  this.isStateful,
       isServiceEnabled: this.isServiceEnabled,
