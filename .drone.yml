@@ -7,13 +7,12 @@ pipeline:
     restore: true
     mount:
       - ./node_modules
-      - ./package-lock.json
-      - ./yarn.lock
     volumes:
       - /tmp/cache:/cache
 
   test:
     image: node:8-alpine
+    pull: true
     when:
       event: 
         - pull_request
@@ -44,8 +43,6 @@ pipeline:
     rebuild: true
     mount:
       - ./node_modules
-      - ./package-lock.json
-      - ./yarn.lock
 
     volumes:
       - /tmp/cache:/cache
