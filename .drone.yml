@@ -34,6 +34,7 @@ pipeline:
     token: $${codecov_token}
     files:
       - ./coverage/lcov.info
+      - ./coverage/clover.xml
 
 
   rebuild-cache:
