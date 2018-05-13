@@ -19,6 +19,7 @@ pipeline:
         - tag
 
     commands:
+      - npm install -g codecov
       - npm install
       - npm test -- --coverage
 
@@ -31,7 +32,7 @@ pipeline:
         - tag
 
     secrets: [ codecov_token ]
-    token: $${codecov_token}
+    token: $${CODECOV_TOKEN}
     files:
       - ./coverage/lcov.info
       - ./coverage/clover.xml
