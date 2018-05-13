@@ -17,7 +17,6 @@ pipeline:
     when:
       event: 
         - pull_request
-        - push
         - tag
 
     commands:
@@ -27,6 +26,11 @@ pipeline:
 
   code-cov:
     image: robertstettner/drone-codecov
+    when:
+      event: 
+        - pull_request
+        - tag
+
     secrets: [ codecov_token ]
     files:
       - ./coverage/lcov.info
