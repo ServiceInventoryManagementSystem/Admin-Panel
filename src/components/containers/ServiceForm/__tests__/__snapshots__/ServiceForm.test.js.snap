@@ -449,69 +449,43 @@ ShallowWrapper {
                 <div
                         className={undefined}
                 >
-                        <TextField
-                                disabled={false}
-                                floatingLabelFixed={false}
+                        <DebounceTextField
                                 floatingLabelText="HREF"
-                                fullWidth={false}
                                 hintText="Reference of the service..."
-                                multiLine={false}
                                 onChange={[Function]}
-                                rows={1}
-                                type="text"
-                                underlineShow={true}
                                 value=""
                         />
                 </div>
                 <div
                         className={undefined}
                 >
-                        <TextField
-                                disabled={false}
-                                floatingLabelFixed={false}
+                        <DebounceTextField
                                 floatingLabelText="Category"
-                                fullWidth={false}
                                 hintText="Enter category..."
-                                multiLine={false}
                                 onChange={[Function]}
-                                rows={1}
-                                type="text"
-                                underlineShow={true}
                                 value=""
                         />
                 </div>
                 <div
                         className={undefined}
                 >
-                        <TextField
-                                disabled={false}
+                        <DebounceTextField
                                 errorText="Name is a required field"
-                                floatingLabelFixed={false}
                                 floatingLabelText="Name"
-                                fullWidth={false}
                                 hintText="Enter name..."
-                                multiLine={false}
                                 onChange={[Function]}
-                                rows={1}
-                                type="text"
-                                underlineShow={true}
                                 value=""
                         />
                 </div>
                 <div
                         className={undefined}
                 >
-                        <TextField
-                                disabled={false}
-                                floatingLabelFixed={false}
+                        <DebounceTextField
                                 floatingLabelText="Description"
-                                fullWidth={false}
                                 hintText="Description of the service..."
                                 multiLine={true}
                                 onChange={[Function]}
                                 rows={1}
-                                type="text"
-                                underlineShow={true}
                                 value=""
                         />
                 </div>
@@ -959,44 +933,24 @@ ShallowWrapper {
                                               }
                                 }
                         >
-                                <TextField
+                                <DebounceTextField
                                         className={undefined}
-                                        disabled={false}
-                                        floatingLabelFixed={false}
                                         floatingLabelText="Name"
-                                        fullWidth={false}
                                         hintText="Name of the service specification..."
-                                        multiLine={false}
                                         name="name"
-                                        rows={1}
                                         type="name"
-                                        underlineShow={true}
                                 />
-                                <TextField
+                                <DebounceTextField
                                         className={undefined}
-                                        disabled={false}
-                                        floatingLabelFixed={false}
                                         floatingLabelText="HREF"
-                                        fullWidth={false}
                                         hintText="Href of the service specification..."
-                                        multiLine={false}
                                         name="href"
-                                        rows={1}
-                                        type="text"
-                                        underlineShow={true}
                                 />
-                                <TextField
+                                <DebounceTextField
                                         className={undefined}
-                                        disabled={false}
-                                        floatingLabelFixed={false}
                                         floatingLabelText="Version"
-                                        fullWidth={false}
                                         hintText="Version of service specification..."
-                                        multiLine={false}
                                         name="version"
-                                        rows={1}
-                                        type="text"
-                                        underlineShow={true}
                                 />
                         </ObjectInput>
                 </div>
@@ -1545,69 +1499,43 @@ ShallowWrapper {
           <div
                     className={undefined}
           >
-                    <TextField
-                              disabled={false}
-                              floatingLabelFixed={false}
+                    <DebounceTextField
                               floatingLabelText="HREF"
-                              fullWidth={false}
                               hintText="Reference of the service..."
-                              multiLine={false}
                               onChange={[Function]}
-                              rows={1}
-                              type="text"
-                              underlineShow={true}
                               value=""
                     />
           </div>
           <div
                     className={undefined}
           >
-                    <TextField
-                              disabled={false}
-                              floatingLabelFixed={false}
+                    <DebounceTextField
                               floatingLabelText="Category"
-                              fullWidth={false}
                               hintText="Enter category..."
-                              multiLine={false}
                               onChange={[Function]}
-                              rows={1}
-                              type="text"
-                              underlineShow={true}
                               value=""
                     />
           </div>
           <div
                     className={undefined}
           >
-                    <TextField
-                              disabled={false}
+                    <DebounceTextField
                               errorText="Name is a required field"
-                              floatingLabelFixed={false}
                               floatingLabelText="Name"
-                              fullWidth={false}
                               hintText="Enter name..."
-                              multiLine={false}
                               onChange={[Function]}
-                              rows={1}
-                              type="text"
-                              underlineShow={true}
                               value=""
                     />
           </div>
           <div
                     className={undefined}
           >
-                    <TextField
-                              disabled={false}
-                              floatingLabelFixed={false}
+                    <DebounceTextField
                               floatingLabelText="Description"
-                              fullWidth={false}
                               hintText="Description of the service..."
                               multiLine={true}
                               onChange={[Function]}
                               rows={1}
-                              type="text"
-                              underlineShow={true}
                               value=""
                     />
           </div>
@@ -2055,44 +1983,24 @@ ShallowWrapper {
                                                 }
                               }
                     >
-                              <TextField
+                              <DebounceTextField
                                         className={undefined}
-                                        disabled={false}
-                                        floatingLabelFixed={false}
                                         floatingLabelText="Name"
-                                        fullWidth={false}
                                         hintText="Name of the service specification..."
-                                        multiLine={false}
                                         name="name"
-                                        rows={1}
                                         type="name"
-                                        underlineShow={true}
                               />
-                              <TextField
+                              <DebounceTextField
                                         className={undefined}
-                                        disabled={false}
-                                        floatingLabelFixed={false}
                                         floatingLabelText="HREF"
-                                        fullWidth={false}
                                         hintText="Href of the service specification..."
-                                        multiLine={false}
                                         name="href"
-                                        rows={1}
-                                        type="text"
-                                        underlineShow={true}
                               />
-                              <TextField
+                              <DebounceTextField
                                         className={undefined}
-                                        disabled={false}
-                                        floatingLabelFixed={false}
                                         floatingLabelText="Version"
-                                        fullWidth={false}
                                         hintText="Version of service specification..."
-                                        multiLine={false}
                                         name="version"
-                                        rows={1}
-                                        type="text"
-                                        underlineShow={true}
                               />
                     </ObjectInput>
           </div>
@@ -2216,69 +2124,43 @@ ShallowWrapper {
             <div
               className={undefined}
 >
-              <TextField
-                            disabled={false}
-                            floatingLabelFixed={false}
+              <DebounceTextField
                             floatingLabelText="HREF"
-                            fullWidth={false}
                             hintText="Reference of the service..."
-                            multiLine={false}
                             onChange={[Function]}
-                            rows={1}
-                            type="text"
-                            underlineShow={true}
                             value=""
               />
 </div>,
             <div
               className={undefined}
 >
-              <TextField
-                            disabled={false}
-                            floatingLabelFixed={false}
+              <DebounceTextField
                             floatingLabelText="Category"
-                            fullWidth={false}
                             hintText="Enter category..."
-                            multiLine={false}
                             onChange={[Function]}
-                            rows={1}
-                            type="text"
-                            underlineShow={true}
                             value=""
               />
 </div>,
             <div
               className={undefined}
 >
-              <TextField
-                            disabled={false}
+              <DebounceTextField
                             errorText="Name is a required field"
-                            floatingLabelFixed={false}
                             floatingLabelText="Name"
-                            fullWidth={false}
                             hintText="Enter name..."
-                            multiLine={false}
                             onChange={[Function]}
-                            rows={1}
-                            type="text"
-                            underlineShow={true}
                             value=""
               />
 </div>,
             <div
               className={undefined}
 >
-              <TextField
-                            disabled={false}
-                            floatingLabelFixed={false}
+              <DebounceTextField
                             floatingLabelText="Description"
-                            fullWidth={false}
                             hintText="Description of the service..."
                             multiLine={true}
                             onChange={[Function]}
                             rows={1}
-                            type="text"
-                            underlineShow={true}
                             value=""
               />
 </div>,
@@ -2726,44 +2608,24 @@ ShallowWrapper {
                                                       }
                             }
               >
-                            <TextField
+                            <DebounceTextField
                                           className={undefined}
-                                          disabled={false}
-                                          floatingLabelFixed={false}
                                           floatingLabelText="Name"
-                                          fullWidth={false}
                                           hintText="Name of the service specification..."
-                                          multiLine={false}
                                           name="name"
-                                          rows={1}
                                           type="name"
-                                          underlineShow={true}
                             />
-                            <TextField
+                            <DebounceTextField
                                           className={undefined}
-                                          disabled={false}
-                                          floatingLabelFixed={false}
                                           floatingLabelText="HREF"
-                                          fullWidth={false}
                                           hintText="Href of the service specification..."
-                                          multiLine={false}
                                           name="href"
-                                          rows={1}
-                                          type="text"
-                                          underlineShow={true}
                             />
-                            <TextField
+                            <DebounceTextField
                                           className={undefined}
-                                          disabled={false}
-                                          floatingLabelFixed={false}
                                           floatingLabelText="Version"
-                                          fullWidth={false}
                                           hintText="Version of service specification..."
-                                          multiLine={false}
                                           name="version"
-                                          rows={1}
-                                          type="text"
-                                          underlineShow={true}
                             />
               </ObjectInput>
 </div>,
@@ -3307,17 +3169,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <TextField
-                disabled={false}
-                floatingLabelFixed={false}
+              "children": <DebounceTextField
                 floatingLabelText="HREF"
-                fullWidth={false}
                 hintText="Reference of the service..."
-                multiLine={false}
                 onChange={[Function]}
-                rows={1}
-                type="text"
-                underlineShow={true}
                 value=""
 />,
               "className": undefined,
@@ -3326,18 +3181,11 @@ ShallowWrapper {
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "class",
+              "nodeType": "function",
               "props": Object {
-                "disabled": false,
-                "floatingLabelFixed": false,
                 "floatingLabelText": "HREF",
-                "fullWidth": false,
                 "hintText": "Reference of the service...",
-                "multiLine": false,
                 "onChange": [Function],
-                "rows": 1,
-                "type": "text",
-                "underlineShow": true,
                 "value": "",
               },
               "ref": null,
@@ -3351,17 +3199,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <TextField
-                disabled={false}
-                floatingLabelFixed={false}
+              "children": <DebounceTextField
                 floatingLabelText="Category"
-                fullWidth={false}
                 hintText="Enter category..."
-                multiLine={false}
                 onChange={[Function]}
-                rows={1}
-                type="text"
-                underlineShow={true}
                 value=""
 />,
               "className": undefined,
@@ -3370,18 +3211,11 @@ ShallowWrapper {
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "class",
+              "nodeType": "function",
               "props": Object {
-                "disabled": false,
-                "floatingLabelFixed": false,
                 "floatingLabelText": "Category",
-                "fullWidth": false,
                 "hintText": "Enter category...",
-                "multiLine": false,
                 "onChange": [Function],
-                "rows": 1,
-                "type": "text",
-                "underlineShow": true,
                 "value": "",
               },
               "ref": null,
@@ -3395,18 +3229,11 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <TextField
-                disabled={false}
+              "children": <DebounceTextField
                 errorText="Name is a required field"
-                floatingLabelFixed={false}
                 floatingLabelText="Name"
-                fullWidth={false}
                 hintText="Enter name..."
-                multiLine={false}
                 onChange={[Function]}
-                rows={1}
-                type="text"
-                underlineShow={true}
                 value=""
 />,
               "className": undefined,
@@ -3415,19 +3242,12 @@ ShallowWrapper {
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "class",
+              "nodeType": "function",
               "props": Object {
-                "disabled": false,
                 "errorText": "Name is a required field",
-                "floatingLabelFixed": false,
                 "floatingLabelText": "Name",
-                "fullWidth": false,
                 "hintText": "Enter name...",
-                "multiLine": false,
                 "onChange": [Function],
-                "rows": 1,
-                "type": "text",
-                "underlineShow": true,
                 "value": "",
               },
               "ref": null,
@@ -3441,17 +3261,12 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <TextField
-                disabled={false}
-                floatingLabelFixed={false}
+              "children": <DebounceTextField
                 floatingLabelText="Description"
-                fullWidth={false}
                 hintText="Description of the service..."
                 multiLine={true}
                 onChange={[Function]}
                 rows={1}
-                type="text"
-                underlineShow={true}
                 value=""
 />,
               "className": undefined,
@@ -3460,18 +3275,13 @@ ShallowWrapper {
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "class",
+              "nodeType": "function",
               "props": Object {
-                "disabled": false,
-                "floatingLabelFixed": false,
                 "floatingLabelText": "Description",
-                "fullWidth": false,
                 "hintText": "Description of the service...",
                 "multiLine": true,
                 "onChange": [Function],
                 "rows": 1,
-                "type": "text",
-                "underlineShow": true,
                 "value": "",
               },
               "ref": null,
@@ -4814,44 +4624,24 @@ ShallowWrapper {
                                                     }
                   }
 >
-                  <TextField
+                  <DebounceTextField
                                     className={undefined}
-                                    disabled={false}
-                                    floatingLabelFixed={false}
                                     floatingLabelText="Name"
-                                    fullWidth={false}
                                     hintText="Name of the service specification..."
-                                    multiLine={false}
                                     name="name"
-                                    rows={1}
                                     type="name"
-                                    underlineShow={true}
                   />
-                  <TextField
+                  <DebounceTextField
                                     className={undefined}
-                                    disabled={false}
-                                    floatingLabelFixed={false}
                                     floatingLabelText="HREF"
-                                    fullWidth={false}
                                     hintText="Href of the service specification..."
-                                    multiLine={false}
                                     name="href"
-                                    rows={1}
-                                    type="text"
-                                    underlineShow={true}
                   />
-                  <TextField
+                  <DebounceTextField
                                     className={undefined}
-                                    disabled={false}
-                                    floatingLabelFixed={false}
                                     floatingLabelText="Version"
-                                    fullWidth={false}
                                     hintText="Version of service specification..."
-                                    multiLine={false}
                                     name="version"
-                                    rows={1}
-                                    type="text"
-                                    underlineShow={true}
                   />
 </ObjectInput>,
               ],
@@ -4875,44 +4665,24 @@ ShallowWrapper {
                 "nodeType": "class",
                 "props": Object {
                   "children": Array [
-                    <TextField
+                    <DebounceTextField
                       className={undefined}
-                      disabled={false}
-                      floatingLabelFixed={false}
                       floatingLabelText="Name"
-                      fullWidth={false}
                       hintText="Name of the service specification..."
-                      multiLine={false}
                       name="name"
-                      rows={1}
                       type="name"
-                      underlineShow={true}
 />,
-                    <TextField
+                    <DebounceTextField
                       className={undefined}
-                      disabled={false}
-                      floatingLabelFixed={false}
                       floatingLabelText="HREF"
-                      fullWidth={false}
                       hintText="Href of the service specification..."
-                      multiLine={false}
                       name="href"
-                      rows={1}
-                      type="text"
-                      underlineShow={true}
 />,
-                    <TextField
+                    <DebounceTextField
                       className={undefined}
-                      disabled={false}
-                      floatingLabelFixed={false}
                       floatingLabelText="Version"
-                      fullWidth={false}
                       hintText="Version of service specification..."
-                      multiLine={false}
                       name="version"
-                      rows={1}
-                      type="text"
-                      underlineShow={true}
 />,
                   ],
                   "mapValues": [Function],
@@ -4928,19 +4698,13 @@ ShallowWrapper {
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "class",
+                    "nodeType": "function",
                     "props": Object {
                       "className": undefined,
-                      "disabled": false,
-                      "floatingLabelFixed": false,
                       "floatingLabelText": "Name",
-                      "fullWidth": false,
                       "hintText": "Name of the service specification...",
-                      "multiLine": false,
                       "name": "name",
-                      "rows": 1,
                       "type": "name",
-                      "underlineShow": true,
                     },
                     "ref": null,
                     "rendered": null,
@@ -4949,19 +4713,12 @@ ShallowWrapper {
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "class",
+                    "nodeType": "function",
                     "props": Object {
                       "className": undefined,
-                      "disabled": false,
-                      "floatingLabelFixed": false,
                       "floatingLabelText": "HREF",
-                      "fullWidth": false,
                       "hintText": "Href of the service specification...",
-                      "multiLine": false,
                       "name": "href",
-                      "rows": 1,
-                      "type": "text",
-                      "underlineShow": true,
                     },
                     "ref": null,
                     "rendered": null,
@@ -4970,19 +4727,12 @@ ShallowWrapper {
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "class",
+                    "nodeType": "function",
                     "props": Object {
                       "className": undefined,
-                      "disabled": false,
-                      "floatingLabelFixed": false,
                       "floatingLabelText": "Version",
-                      "fullWidth": false,
                       "hintText": "Version of service specification...",
-                      "multiLine": false,
                       "name": "version",
-                      "rows": 1,
-                      "type": "text",
-                      "underlineShow": true,
                     },
                     "ref": null,
                     "rendered": null,
@@ -5808,69 +5558,43 @@ ShallowWrapper {
                     <div
                               className={undefined}
                     >
-                              <TextField
-                                        disabled={false}
-                                        floatingLabelFixed={false}
+                              <DebounceTextField
                                         floatingLabelText="HREF"
-                                        fullWidth={false}
                                         hintText="Reference of the service..."
-                                        multiLine={false}
                                         onChange={[Function]}
-                                        rows={1}
-                                        type="text"
-                                        underlineShow={true}
                                         value=""
                               />
                     </div>
                     <div
                               className={undefined}
                     >
-                              <TextField
-                                        disabled={false}
-                                        floatingLabelFixed={false}
+                              <DebounceTextField
                                         floatingLabelText="Category"
-                                        fullWidth={false}
                                         hintText="Enter category..."
-                                        multiLine={false}
                                         onChange={[Function]}
-                                        rows={1}
-                                        type="text"
-                                        underlineShow={true}
                                         value=""
                               />
                     </div>
                     <div
                               className={undefined}
                     >
-                              <TextField
-                                        disabled={false}
+                              <DebounceTextField
                                         errorText="Name is a required field"
-                                        floatingLabelFixed={false}
                                         floatingLabelText="Name"
-                                        fullWidth={false}
                                         hintText="Enter name..."
-                                        multiLine={false}
                                         onChange={[Function]}
-                                        rows={1}
-                                        type="text"
-                                        underlineShow={true}
                                         value=""
                               />
                     </div>
                     <div
                               className={undefined}
                     >
-                              <TextField
-                                        disabled={false}
-                                        floatingLabelFixed={false}
+                              <DebounceTextField
                                         floatingLabelText="Description"
-                                        fullWidth={false}
                                         hintText="Description of the service..."
                                         multiLine={true}
                                         onChange={[Function]}
                                         rows={1}
-                                        type="text"
-                                        underlineShow={true}
                                         value=""
                               />
                     </div>
@@ -6318,44 +6042,24 @@ ShallowWrapper {
                                                           }
                                         }
                               >
-                                        <TextField
+                                        <DebounceTextField
                                                   className={undefined}
-                                                  disabled={false}
-                                                  floatingLabelFixed={false}
                                                   floatingLabelText="Name"
-                                                  fullWidth={false}
                                                   hintText="Name of the service specification..."
-                                                  multiLine={false}
                                                   name="name"
-                                                  rows={1}
                                                   type="name"
-                                                  underlineShow={true}
                                         />
-                                        <TextField
+                                        <DebounceTextField
                                                   className={undefined}
-                                                  disabled={false}
-                                                  floatingLabelFixed={false}
                                                   floatingLabelText="HREF"
-                                                  fullWidth={false}
                                                   hintText="Href of the service specification..."
-                                                  multiLine={false}
                                                   name="href"
-                                                  rows={1}
-                                                  type="text"
-                                                  underlineShow={true}
                                         />
-                                        <TextField
+                                        <DebounceTextField
                                                   className={undefined}
-                                                  disabled={false}
-                                                  floatingLabelFixed={false}
                                                   floatingLabelText="Version"
-                                                  fullWidth={false}
                                                   hintText="Version of service specification..."
-                                                  multiLine={false}
                                                   name="version"
-                                                  rows={1}
-                                                  type="text"
-                                                  underlineShow={true}
                                         />
                               </ObjectInput>
                     </div>
@@ -6904,69 +6608,43 @@ ShallowWrapper {
             <div
                         className={undefined}
             >
-                        <TextField
-                                    disabled={false}
-                                    floatingLabelFixed={false}
+                        <DebounceTextField
                                     floatingLabelText="HREF"
-                                    fullWidth={false}
                                     hintText="Reference of the service..."
-                                    multiLine={false}
                                     onChange={[Function]}
-                                    rows={1}
-                                    type="text"
-                                    underlineShow={true}
                                     value=""
                         />
             </div>
             <div
                         className={undefined}
             >
-                        <TextField
-                                    disabled={false}
-                                    floatingLabelFixed={false}
+                        <DebounceTextField
                                     floatingLabelText="Category"
-                                    fullWidth={false}
                                     hintText="Enter category..."
-                                    multiLine={false}
                                     onChange={[Function]}
-                                    rows={1}
-                                    type="text"
-                                    underlineShow={true}
                                     value=""
                         />
             </div>
             <div
                         className={undefined}
             >
-                        <TextField
-                                    disabled={false}
+                        <DebounceTextField
                                     errorText="Name is a required field"
-                                    floatingLabelFixed={false}
                                     floatingLabelText="Name"
-                                    fullWidth={false}
                                     hintText="Enter name..."
-                                    multiLine={false}
                                     onChange={[Function]}
-                                    rows={1}
-                                    type="text"
-                                    underlineShow={true}
                                     value=""
                         />
             </div>
             <div
                         className={undefined}
             >
-                        <TextField
-                                    disabled={false}
-                                    floatingLabelFixed={false}
+                        <DebounceTextField
                                     floatingLabelText="Description"
-                                    fullWidth={false}
                                     hintText="Description of the service..."
                                     multiLine={true}
                                     onChange={[Function]}
                                     rows={1}
-                                    type="text"
-                                    underlineShow={true}
                                     value=""
                         />
             </div>
@@ -7414,44 +7092,24 @@ ShallowWrapper {
                                                           }
                                     }
                         >
-                                    <TextField
+                                    <DebounceTextField
                                                 className={undefined}
-                                                disabled={false}
-                                                floatingLabelFixed={false}
                                                 floatingLabelText="Name"
-                                                fullWidth={false}
                                                 hintText="Name of the service specification..."
-                                                multiLine={false}
                                                 name="name"
-                                                rows={1}
                                                 type="name"
-                                                underlineShow={true}
                                     />
-                                    <TextField
+                                    <DebounceTextField
                                                 className={undefined}
-                                                disabled={false}
-                                                floatingLabelFixed={false}
                                                 floatingLabelText="HREF"
-                                                fullWidth={false}
                                                 hintText="Href of the service specification..."
-                                                multiLine={false}
                                                 name="href"
-                                                rows={1}
-                                                type="text"
-                                                underlineShow={true}
                                     />
-                                    <TextField
+                                    <DebounceTextField
                                                 className={undefined}
-                                                disabled={false}
-                                                floatingLabelFixed={false}
                                                 floatingLabelText="Version"
-                                                fullWidth={false}
                                                 hintText="Version of service specification..."
-                                                multiLine={false}
                                                 name="version"
-                                                rows={1}
-                                                type="text"
-                                                underlineShow={true}
                                     />
                         </ObjectInput>
             </div>
@@ -7575,69 +7233,43 @@ ShallowWrapper {
               <div
                 className={undefined}
 >
-                <TextField
-                                disabled={false}
-                                floatingLabelFixed={false}
+                <DebounceTextField
                                 floatingLabelText="HREF"
-                                fullWidth={false}
                                 hintText="Reference of the service..."
-                                multiLine={false}
                                 onChange={[Function]}
-                                rows={1}
-                                type="text"
-                                underlineShow={true}
                                 value=""
                 />
 </div>,
               <div
                 className={undefined}
 >
-                <TextField
-                                disabled={false}
-                                floatingLabelFixed={false}
+                <DebounceTextField
                                 floatingLabelText="Category"
-                                fullWidth={false}
                                 hintText="Enter category..."
-                                multiLine={false}
                                 onChange={[Function]}
-                                rows={1}
-                                type="text"
-                                underlineShow={true}
                                 value=""
                 />
 </div>,
               <div
                 className={undefined}
 >
-                <TextField
-                                disabled={false}
+                <DebounceTextField
                                 errorText="Name is a required field"
-                                floatingLabelFixed={false}
                                 floatingLabelText="Name"
-                                fullWidth={false}
                                 hintText="Enter name..."
-                                multiLine={false}
                                 onChange={[Function]}
-                                rows={1}
-                                type="text"
-                                underlineShow={true}
                                 value=""
                 />
 </div>,
               <div
                 className={undefined}
 >
-                <TextField
-                                disabled={false}
-                                floatingLabelFixed={false}
+                <DebounceTextField
                                 floatingLabelText="Description"
-                                fullWidth={false}
                                 hintText="Description of the service..."
                                 multiLine={true}
                                 onChange={[Function]}
                                 rows={1}
-                                type="text"
-                                underlineShow={true}
                                 value=""
                 />
 </div>,
@@ -8085,44 +7717,24 @@ ShallowWrapper {
                                                               }
                                 }
                 >
-                                <TextField
+                                <DebounceTextField
                                                 className={undefined}
-                                                disabled={false}
-                                                floatingLabelFixed={false}
                                                 floatingLabelText="Name"
-                                                fullWidth={false}
                                                 hintText="Name of the service specification..."
-                                                multiLine={false}
                                                 name="name"
-                                                rows={1}
                                                 type="name"
-                                                underlineShow={true}
                                 />
-                                <TextField
+                                <DebounceTextField
                                                 className={undefined}
-                                                disabled={false}
-                                                floatingLabelFixed={false}
                                                 floatingLabelText="HREF"
-                                                fullWidth={false}
                                                 hintText="Href of the service specification..."
-                                                multiLine={false}
                                                 name="href"
-                                                rows={1}
-                                                type="text"
-                                                underlineShow={true}
                                 />
-                                <TextField
+                                <DebounceTextField
                                                 className={undefined}
-                                                disabled={false}
-                                                floatingLabelFixed={false}
                                                 floatingLabelText="Version"
-                                                fullWidth={false}
                                                 hintText="Version of service specification..."
-                                                multiLine={false}
                                                 name="version"
-                                                rows={1}
-                                                type="text"
-                                                underlineShow={true}
                                 />
                 </ObjectInput>
 </div>,
@@ -8666,17 +8278,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <TextField
-                  disabled={false}
-                  floatingLabelFixed={false}
+                "children": <DebounceTextField
                   floatingLabelText="HREF"
-                  fullWidth={false}
                   hintText="Reference of the service..."
-                  multiLine={false}
                   onChange={[Function]}
-                  rows={1}
-                  type="text"
-                  underlineShow={true}
                   value=""
 />,
                 "className": undefined,
@@ -8685,18 +8290,11 @@ ShallowWrapper {
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "class",
+                "nodeType": "function",
                 "props": Object {
-                  "disabled": false,
-                  "floatingLabelFixed": false,
                   "floatingLabelText": "HREF",
-                  "fullWidth": false,
                   "hintText": "Reference of the service...",
-                  "multiLine": false,
                   "onChange": [Function],
-                  "rows": 1,
-                  "type": "text",
-                  "underlineShow": true,
                   "value": "",
                 },
                 "ref": null,
@@ -8710,17 +8308,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <TextField
-                  disabled={false}
-                  floatingLabelFixed={false}
+                "children": <DebounceTextField
                   floatingLabelText="Category"
-                  fullWidth={false}
                   hintText="Enter category..."
-                  multiLine={false}
                   onChange={[Function]}
-                  rows={1}
-                  type="text"
-                  underlineShow={true}
                   value=""
 />,
                 "className": undefined,
@@ -8729,18 +8320,11 @@ ShallowWrapper {
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "class",
+                "nodeType": "function",
                 "props": Object {
-                  "disabled": false,
-                  "floatingLabelFixed": false,
                   "floatingLabelText": "Category",
-                  "fullWidth": false,
                   "hintText": "Enter category...",
-                  "multiLine": false,
                   "onChange": [Function],
-                  "rows": 1,
-                  "type": "text",
-                  "underlineShow": true,
                   "value": "",
                 },
                 "ref": null,
@@ -8754,18 +8338,11 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <TextField
-                  disabled={false}
+                "children": <DebounceTextField
                   errorText="Name is a required field"
-                  floatingLabelFixed={false}
                   floatingLabelText="Name"
-                  fullWidth={false}
                   hintText="Enter name..."
-                  multiLine={false}
                   onChange={[Function]}
-                  rows={1}
-                  type="text"
-                  underlineShow={true}
                   value=""
 />,
                 "className": undefined,
@@ -8774,19 +8351,12 @@ ShallowWrapper {
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "class",
+                "nodeType": "function",
                 "props": Object {
-                  "disabled": false,
                   "errorText": "Name is a required field",
-                  "floatingLabelFixed": false,
                   "floatingLabelText": "Name",
-                  "fullWidth": false,
                   "hintText": "Enter name...",
-                  "multiLine": false,
                   "onChange": [Function],
-                  "rows": 1,
-                  "type": "text",
-                  "underlineShow": true,
                   "value": "",
                 },
                 "ref": null,
@@ -8800,17 +8370,12 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <TextField
-                  disabled={false}
-                  floatingLabelFixed={false}
+                "children": <DebounceTextField
                   floatingLabelText="Description"
-                  fullWidth={false}
                   hintText="Description of the service..."
                   multiLine={true}
                   onChange={[Function]}
                   rows={1}
-                  type="text"
-                  underlineShow={true}
                   value=""
 />,
                 "className": undefined,
@@ -8819,18 +8384,13 @@ ShallowWrapper {
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "class",
+                "nodeType": "function",
                 "props": Object {
-                  "disabled": false,
-                  "floatingLabelFixed": false,
                   "floatingLabelText": "Description",
-                  "fullWidth": false,
                   "hintText": "Description of the service...",
                   "multiLine": true,
                   "onChange": [Function],
                   "rows": 1,
-                  "type": "text",
-                  "underlineShow": true,
                   "value": "",
                 },
                 "ref": null,
@@ -10173,44 +9733,24 @@ ShallowWrapper {
                                                           }
                     }
 >
-                    <TextField
+                    <DebounceTextField
                                         className={undefined}
-                                        disabled={false}
-                                        floatingLabelFixed={false}
                                         floatingLabelText="Name"
-                                        fullWidth={false}
                                         hintText="Name of the service specification..."
-                                        multiLine={false}
                                         name="name"
-                                        rows={1}
                                         type="name"
-                                        underlineShow={true}
                     />
-                    <TextField
+                    <DebounceTextField
                                         className={undefined}
-                                        disabled={false}
-                                        floatingLabelFixed={false}
                                         floatingLabelText="HREF"
-                                        fullWidth={false}
                                         hintText="Href of the service specification..."
-                                        multiLine={false}
                                         name="href"
-                                        rows={1}
-                                        type="text"
-                                        underlineShow={true}
                     />
-                    <TextField
+                    <DebounceTextField
                                         className={undefined}
-                                        disabled={false}
-                                        floatingLabelFixed={false}
                                         floatingLabelText="Version"
-                                        fullWidth={false}
                                         hintText="Version of service specification..."
-                                        multiLine={false}
                                         name="version"
-                                        rows={1}
-                                        type="text"
-                                        underlineShow={true}
                     />
 </ObjectInput>,
                 ],
@@ -10234,44 +9774,24 @@ ShallowWrapper {
                   "nodeType": "class",
                   "props": Object {
                     "children": Array [
-                      <TextField
+                      <DebounceTextField
                         className={undefined}
-                        disabled={false}
-                        floatingLabelFixed={false}
                         floatingLabelText="Name"
-                        fullWidth={false}
                         hintText="Name of the service specification..."
-                        multiLine={false}
                         name="name"
-                        rows={1}
                         type="name"
-                        underlineShow={true}
 />,
-                      <TextField
+                      <DebounceTextField
                         className={undefined}
-                        disabled={false}
-                        floatingLabelFixed={false}
                         floatingLabelText="HREF"
-                        fullWidth={false}
                         hintText="Href of the service specification..."
-                        multiLine={false}
                         name="href"
-                        rows={1}
-                        type="text"
-                        underlineShow={true}
 />,
-                      <TextField
+                      <DebounceTextField
                         className={undefined}
-                        disabled={false}
-                        floatingLabelFixed={false}
                         floatingLabelText="Version"
-                        fullWidth={false}
                         hintText="Version of service specification..."
-                        multiLine={false}
                         name="version"
-                        rows={1}
-                        type="text"
-                        underlineShow={true}
 />,
                     ],
                     "mapValues": [Function],
@@ -10287,19 +9807,13 @@ ShallowWrapper {
                     Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "class",
+                      "nodeType": "function",
                       "props": Object {
                         "className": undefined,
-                        "disabled": false,
-                        "floatingLabelFixed": false,
                         "floatingLabelText": "Name",
-                        "fullWidth": false,
                         "hintText": "Name of the service specification...",
-                        "multiLine": false,
                         "name": "name",
-                        "rows": 1,
                         "type": "name",
-                        "underlineShow": true,
                       },
                       "ref": null,
                       "rendered": null,
@@ -10308,19 +9822,12 @@ ShallowWrapper {
                     Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "class",
+                      "nodeType": "function",
                       "props": Object {
                         "className": undefined,
-                        "disabled": false,
-                        "floatingLabelFixed": false,
                         "floatingLabelText": "HREF",
-                        "fullWidth": false,
                         "hintText": "Href of the service specification...",
-                        "multiLine": false,
                         "name": "href",
-                        "rows": 1,
-                        "type": "text",
-                        "underlineShow": true,
                       },
                       "ref": null,
                       "rendered": null,
@@ -10329,19 +9836,12 @@ ShallowWrapper {
                     Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "class",
+                      "nodeType": "function",
                       "props": Object {
                         "className": undefined,
-                        "disabled": false,
-                        "floatingLabelFixed": false,
                         "floatingLabelText": "Version",
-                        "fullWidth": false,
                         "hintText": "Version of service specification...",
-                        "multiLine": false,
                         "name": "version",
-                        "rows": 1,
-                        "type": "text",
-                        "underlineShow": true,
                       },
                       "ref": null,
                       "rendered": null,
