@@ -31,6 +31,7 @@ pipeline:
         - tag
 
     secrets: [ codecov_token ]
+    token: $${codecov_token}
     files:
       - ./coverage/lcov.info
 
