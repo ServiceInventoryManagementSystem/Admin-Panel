@@ -19,8 +19,8 @@ pipeline:
         - tag
 
     commands:
-      - yarn
-      - yarn test -- --coverage
+      - npm install
+      - npm test -- --coverage
 
 
   code-cov:
