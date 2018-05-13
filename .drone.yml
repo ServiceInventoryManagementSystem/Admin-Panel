@@ -13,6 +13,7 @@ pipeline:
   test:
     image: node:8-alpine
     pull: true
+    secrets: [ codecov_token ]
     when:
       event: 
         - pull_request
@@ -22,20 +23,7 @@ pipeline:
       - npm install -g codecov
       - npm install
       - npm test -- --coverage
-
-
-  code-cov:
-    image: robertstettner/drone-codecov
-    when:
-      event: 
-        - pull_request
-        - tag
-
-    secrets: [ codecov_token ]
-    token: $${CODECOV_TOKEN}
-    files:
-      - ./coverage/lcov.info
-      - ./coverage/clover.xml
+      - codecov -t ${{CODECOV_TOKEN}}
 
 
   rebuild-cache:
