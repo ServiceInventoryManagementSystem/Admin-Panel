@@ -93,7 +93,7 @@
     },
     "moduleDirectories": [
       "node_modules",
-      "<rootDir>/src"
+      "src"
     ],
     "moduleFileExtensions": [
       "web.js",
