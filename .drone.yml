@@ -16,14 +16,14 @@ pipeline:
     secrets: [ codecov_token ]
     when:
       event: 
-        - pull_request
+        - push
         - tag
 
     commands:
       - npm install -g codecov
       - npm install
       - npm test -- --coverage
-      - codecov -t ${CODECOV_TOKEN}
+      - codecov -t $${CODECOV_TOKEN}
 
   rebuild-cache:
     image: drillster/drone-volume-cache
