@@ -1,6 +1,4 @@
 pipeline:
-
-
   restore-cache:
     image: drillster/drone-volume-cache
     pull: true
@@ -11,21 +9,33 @@ pipeline:
       - ./node_modules
     volumes:
       - /tmp/cache:/cache
+
   test:
-    image: node:8-alpine
+    image: node
+    pull: true
     when:
       event: 
-        - pull_request
         - push
+        - pull_request
         - tag
 
     commands:
-      - yarn
-      - yarn test
+      - npm install
+      - npm test -- --coverage
 
+  upload-cov:
+    image: node
+    pull: true
+    secrets: [ codecov_token ]
+    when:
+      event: 
+        - push
+        - pull_request
+        - tag
 
-
-
+    commands:
+      - npm install -g codecov
+      - codecov -t $${CODECOV_TOKEN}
 
   rebuild-cache:
     image: drillster/drone-volume-cache
@@ -35,5 +45,6 @@ pipeline:
     rebuild: true
     mount:
       - ./node_modules
+
     volumes:
       - /tmp/cache:/cache
