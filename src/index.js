@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Router } from 'react-router';
-import createBrowserHistory from 'history/createBrowserHistory';
-import createHashHistory from 'history/createHashHistory';
+import createBrowserHistory from 'history/createBrowserHistory'
 
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -22,15 +21,7 @@ serviceManager.registerService(HttpServiceProvider);
 serviceManager.registerService(AuthServiceProvider);
 serviceManager.registerService(ManagedServiceServiceProvider);
 
-let history;
-if(process.env.ELECTRON){
-  // required when not running a server for routes to work properly
-  history = createHashHistory();
-}else{
-  history = createBrowserHistory();
-}
-
-
+const history = createBrowserHistory();
 
 ReactDOM.render(
   <ServiceProvider serviceManager={serviceManager}>

@@ -21,24 +21,13 @@ import { ObjectInput } from 'components/misc/ObjectInput';
 import { ListInput } from 'components/misc/ListInput';
 import { ServiceSpecification } from 'services/sims/ManagedService';
 
-import { InputDebounce } from 'components/misc/InputDebounce';
-
-import { omit, pick } from 'lodash';
-
-function DebounceTextField(props){
-  return (
-    <InputDebounce debounce={50} {...pick(props, ["onChange", "value"])} >
-      <TextField {...omit(props, ["onChange", "value"])}/>
-    </InputDebounce>
-  );
-}
 
 function RelatedPartyList(props){
   return (
     <ObjectInput {...props}>
-      <DebounceTextField className={_s.objectTextField} type="text" name="name" hintText="Name of the related party..." floatingLabelText="Name" />
-      <DebounceTextField className={_s.objectTextField} type="text" name="role" hintText="Role of the related party..." floatingLabelText="Role" />
-      <DebounceTextField className={_s.objectTextField} type="text" name="href" hintText="Href of the related party" floatingLabelText="HREF" />
+      <TextField className={_s.objectTextField} type="text" name="name" hintText="Name of the related party..." floatingLabelText="Name" />
+      <TextField className={_s.objectTextField} type="text" name="role" hintText="Role of the related party..." floatingLabelText="Role" />
+      <TextField className={_s.objectTextField} type="text" name="href" hintText="Href of the related party" floatingLabelText="HREF" />
     </ObjectInput>
   );
 }
@@ -46,8 +35,8 @@ function RelatedPartyList(props){
 function ServiceCharacteristicList(props){
   return (
     <ObjectInput {...props}>
-      <DebounceTextField className={_s.objectTextField} type="text" name="name" hintText="Name of service characteristic..." floatingLabelText="Name"/>
-      <DebounceTextField className={_s.objectTextField} type="text" name="value" hintText="Value of service characteristic..." floatingLabelText="Value"/>
+      <TextField className={_s.objectTextField} type="text" name="name" hintText="Name of service characteristic..." floatingLabelText="Name"/>
+      <TextField className={_s.objectTextField} type="text" name="value" hintText="Value of service characteristic..." floatingLabelText="Value"/>
     </ObjectInput>
   );
 }
@@ -55,9 +44,9 @@ function ServiceCharacteristicList(props){
 function ServiceRelationshipList(props){
   return (
     <ObjectInput {...props}>
-      <DebounceTextField className={_s.objectTextField} type="text" name="type" hintText="Type of service relationship..." floatingLabelText="Type" />
-      <DebounceTextField className={_s.objectTextField} type="text" name="service.href" hintText="Href of service relationship..." floatingLabelText="HREF" />
-      <DebounceTextField className={_s.objectTextField} type="text" name="service.id" hintText="ID of service relationship..." floatingLabelText="ID" />
+      <TextField className={_s.objectTextField} type="text" name="type" hintText="Type of service relationship..." floatingLabelText="Type" />
+      <TextField className={_s.objectTextField} type="text" name="service.href" hintText="Href of service relationship..." floatingLabelText="HREF" />
+      <TextField className={_s.objectTextField} type="text" name="service.id" hintText="ID of service relationship..." floatingLabelText="ID" />
     </ObjectInput>
   );
 }
@@ -65,8 +54,8 @@ function ServiceRelationshipList(props){
 function SupportingServiceList(props){
   return (
     <ObjectInput {...props}>
-      <DebounceTextField className={_s.objectTextField} type="text" name="id" hintText="ID of supporting service..." floatingLabelText="ID" />
-      <DebounceTextField className={_s.objectTextField} type="text" name="href" hintText="Href of supporting service..." floatingLabelText="HREF" />
+      <TextField className={_s.objectTextField} type="text" name="id" hintText="ID of supporting service..." floatingLabelText="ID" />
+      <TextField className={_s.objectTextField} type="text" name="href" hintText="Href of supporting service..." floatingLabelText="HREF" />
     </ObjectInput>
   );
 }
@@ -74,8 +63,8 @@ function SupportingServiceList(props){
 function SupportingResourceList(props){
   return (
     <ObjectInput {...props}>
-      <DebounceTextField className={_s.objectTextField} type="text" name="id" hintText="ID of supporting resource..." floatingLabelText="ID" />
-      <DebounceTextField className={_s.objectTextField} type="text" name="href" hintText="Href of supporting resource..." floatingLabelText="HREF" />
+      <TextField className={_s.objectTextField} type="text" name="id" hintText="ID of supporting resource..." floatingLabelText="ID" />
+      <TextField className={_s.objectTextField} type="text" name="href" hintText="Href of supporting resource..." floatingLabelText="HREF" />
     </ObjectInput>
   );
 }
@@ -230,19 +219,19 @@ export class ServiceForm extends Component {
               <h1 className={_s.header}> Add New Service</h1>
 
               <div className={_s.formtext}>
-                <DebounceTextField onChange={(e,v)=> this.onFieldChange("href", v)} value={this.state.formValues.href} hintText="Reference of the service..." floatingLabelText="HREF"/>
+                <TextField onChange={(e,v)=> this.onFieldChange("href", v)} value={this.state.formValues.href} hintText="Reference of the service..." floatingLabelText="HREF"/>
               </div>
 
               <div className={_s.formtext}>
-                <DebounceTextField onChange={(e,v)=> this.onFieldChange("category", v)} value={this.state.formValues.category} hintText="Enter category..." floatingLabelText="Category"/>
+                <TextField onChange={(e,v)=> this.onFieldChange("category", v)} value={this.state.formValues.category} hintText="Enter category..." floatingLabelText="Category"/>
               </div>
 
               <div className={_s.formtext}>
-                <DebounceTextField onChange={(e,v)=> this.onFieldChange("name", v)} value={this.state.formValues.name} errorText={this.state.formValues.nameError} hintText="Enter name..." floatingLabelText="Name"/>
+                <TextField onChange={(e,v)=> this.onFieldChange("name", v)} value={this.state.formValues.name} errorText={this.state.formValues.nameError} hintText="Enter name..." floatingLabelText="Name"/>
               </div>
 
               <div className={_s.formtext}>
-                <DebounceTextField onChange={(e,v)=> this.onFieldChange("description", v)} value={this.state.formValues.description} hintText="Description of the service..." floatingLabelText="Description" multiLine={true} rows={1}/>
+                <TextField onChange={(e,v)=> this.onFieldChange("description", v)} value={this.state.formValues.description} hintText="Description of the service..." floatingLabelText="Description" multiLine={true} rows={1}/>
               </div>
 
               <Divider className={_s.divider} />
@@ -303,9 +292,9 @@ export class ServiceForm extends Component {
               <div>
                 <h3>Service Specification</h3>
                 <ObjectInput value={this.state.formValues.serviceSpecification} onChange={(v) => this.onFieldChange("serviceSpecification", v)}>
-                  <DebounceTextField className={_s.objectTextField} type="name" name="name" hintText="Name of the service specification..." floatingLabelText="Name" />
-                  <DebounceTextField className={_s.objectTextField} name="href" hintText="Href of the service specification..." floatingLabelText="HREF"/>
-                  <DebounceTextField className={_s.objectTextField} name="version" hintText="Version of service specification..." floatingLabelText="Version" />
+                  <TextField className={_s.objectTextField} type="name" name="name" hintText="Name of the service specification..." floatingLabelText="Name" />
+                  <TextField className={_s.objectTextField} name="href" hintText="Href of the service specification..." floatingLabelText="HREF"/>
+                  <TextField className={_s.objectTextField} name="version" hintText="Version of service specification..." floatingLabelText="Version" />
                 </ObjectInput>
               </div>
               <Divider className={_s.divider} />
