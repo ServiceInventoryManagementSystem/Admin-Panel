@@ -113,7 +113,7 @@ module.exports = {
 
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
-      {
+      /*{
         test: /\.(js|jsx|mjs)$/,
         enforce: 'pre',
         use: [
@@ -127,7 +127,7 @@ module.exports = {
           },
         ],
         include: paths.appSrc,
-      },
+      },*/
       {
         // "oneOf" will traverse all following loaders until one will
         // match the requirements. When no loader matches it will fall
