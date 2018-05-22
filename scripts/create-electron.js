@@ -5,7 +5,8 @@ options = {
   asar: true,
   name: "SISM Admin",
   out: "./electron-app",
-  overwrite: true
+  overwrite: true,
+  platform: "win32"
 }
 
 packager(options).then((paths) => {

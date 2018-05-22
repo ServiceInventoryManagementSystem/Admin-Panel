@@ -25,3 +25,42 @@ pipeline:
     commands:
       - npm install -g codecov
       - codecov -t $${CODECOV_TOKEN}
+
+
+  build:
+    image: node
+    pull: true
+    when:
+      event:
+        - tag
+    
+    commands:
+      - npm run build-electron
+
+  build-zip:
+    image: kramos/alpine-zip
+    when:
+      event:
+        - tag
+    commands:
+      - mkdir deploy
+      - cp -r ./build ./deploy/browser-build
+      - cp -r ./electron-app/* ./deploy
+      - zip -r sims-admin_${DRONE_TAG}.zip ./deploy
+
+
+  deploy-zip:
+    group: deploy
+    image: appleboy/drone-scp
+    host: faavne.no
+    username: root
+    key_path: /ssh/id_rsa
+    when:
+      event:
+        - tag
+    target:
+      - /mnt/nginx-fs/files/public/sims/releases/sims-admin
+    source:
+      - ./sims-admin_${DRONE_TAG}.zip
+    volumes:
+      - /root/.ssh/id_rsa:/ssh/id_rsa
