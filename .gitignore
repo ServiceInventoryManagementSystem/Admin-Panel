@@ -4,6 +4,7 @@
 # Build output folders
 build
 electron-app
+deploy
 
 # Node modules 
 node_modules
