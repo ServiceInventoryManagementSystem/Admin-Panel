@@ -6,7 +6,7 @@ import {lightGreen300, lightGreen400, red700, black} from 'material-ui/styles/co
 
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import {Subject} from 'rxjs';
+import {Observable, Subject, BehaviorSubject} from 'rxjs';
 import Snackbar from 'material-ui/Snackbar';
 import 'typeface-roboto';
 
@@ -35,8 +35,11 @@ const DEFAULT_QUERY = 'redux';
 export class AdminPage extends Component {
     constructor(props){
       super(props);
-      this.querySubject = new Subject();
-  
+      this.querySubject = new BehaviorSubject("");
+
+
+      this.refreshTimer = Observable.timer(5000, 5000);
+      this.refreshSub = null;
       this.state = {
         services: [],
         lastError: null,
@@ -60,7 +63,7 @@ export class AdminPage extends Component {
     componentDidMount(){
       this.subs=[
         this.querySubject.debounceTime(300).distinctUntilChanged().subscribe((a)=> {
-          this.props.imService.search({name : a}).subscribe((services) => {
+          this.props.imService.search({name: a}).subscribe((services) => {
             this.setState({
               services: services
             });
@@ -70,16 +73,37 @@ export class AdminPage extends Component {
           this.setState({
             services: services
           });
-        }),
+        })
       ];
-      this.refresh()
+      this._refreshSubunsub();
+      
+      this.refresh();
+    }
+
+    _refreshSubunsub(){
+      if(this.refreshSub){
+        this.refreshSub.unsubscribe();
+      }
+      this.refreshSub = this.refreshTimer.subscribe((a) => {
+        console.log(a);
+        this.props.imService.search({name: this.querySubject.getValue()}).subscribe((services) => {
+          this.setState({
+            services: services
+          });
+        });
+      });
     }
 
     componentWillUnmount(){
       for(let sub of this.subs){
         sub.unsubscribe();
       }
+      if(this.refreshSub){
+        this.refreshSub.unsubscribe();
+        this.refreshSub = null;
+      }
     }
+
 
     //open Table dialog
     handleClickTable(service){
@@ -173,6 +197,7 @@ export class AdminPage extends Component {
     }
 
     onChange(value){
+      this._refreshSubunsub();
       this.querySubject.next(value); // må gjøre så category funker, eget parameter eller objekt
     }
 
