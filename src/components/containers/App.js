@@ -8,8 +8,8 @@ import LoginView from './LoginView';
 import ServiceForm from 'components/containers/ServiceForm/ServiceForm';
 import ServiceEditForm from 'components/containers/ServiceForm/ServiceEditForm';
 import DetailView from './DetailView';
-import { IAuthService, mapAndConnect } from 'services';
-
+import { IAuthService, mapAndConnect, ErrorService } from 'services';
+import Snackbar from 'material-ui/Snackbar';
 
 export class App extends Component {
   constructor(props){
@@ -28,10 +28,23 @@ export class App extends Component {
       });
       this.doRedirect = true;
     })
+    this.props.error.getErrorEvents("FATAL").subscribe( (errorEvent) => {
+      this.props.auth.logout();
+      this.setState({
+        showErrorSnack: true,
+        lastError: errorEvent.description
+      });
+    })
   }
 
   componentWillUnmount(){
     this.authSub.unsubscribe();
+  }
+
+  hideError(){
+    this.setState({
+      showErrorSnack: false
+    });
   }
 
   render() {
@@ -62,12 +75,22 @@ export class App extends Component {
         }}/>
       </Switch>
       {redirect}
+
+        <Snackbar
+          open={this.state.showErrorSnack}
+          message={this.state.lastError}
+          autoHideDuration={4000}
+          onRequestClose={() => this.hideError()}
+        />
+
       </div>
+
     )
   }
 }
 
 
 export default mapAndConnect(App, {
-  auth: IAuthService
+  auth: IAuthService,
+  error: ErrorService
 })

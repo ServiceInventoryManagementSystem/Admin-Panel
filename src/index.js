@@ -11,12 +11,11 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import App from 'components/containers/App';
 import { ServiceProvider, ConfigServiceProvider } from 'services';
-import { AuthServiceProvider, ServiceManager, HttpServiceInterface,HttpServiceProvider, ManagedServiceServiceProvider } from 'services';
-
+import { AuthServiceProvider, ServiceManager, HttpServiceInterface,HttpServiceProvider, ManagedServiceServiceProvider, ErrorService } from 'services';
 import { THEME } from 'common/constants';
-
 const serviceManager = new ServiceManager();
 
+serviceManager.registerService(ErrorService);
 serviceManager.registerService(ConfigServiceProvider, null, localStorage);
 serviceManager.registerService(HttpServiceProvider);
 serviceManager.registerService(AuthServiceProvider);

@@ -48,6 +48,7 @@ export class HttpServiceProvider extends HttpServiceInterface{
 
   handleResponse(r) {
     if (!r.ok) {
+      console.log(r);
       return Observable.throw(r);
     }
     return Observable.fromPromise(r.clone().json()).catch((err) => {

@@ -2,10 +2,10 @@ import { HttpServiceInterface, ConfigServiceInterface } from 'services';
 
 import { ManagedService } from './ManagedService';
 import { IManagedService } from './mngservice.interface';
-
 import { DEFAULT_API } from 'common/constants';
-
 import { Observable } from 'rxjs';
+import {ErrorService, ErrorEvent} from 'services';
+
 
 
 export class ManagedServiceServiceProvider extends IManagedService{
@@ -13,6 +13,7 @@ export class ManagedServiceServiceProvider extends IManagedService{
     super();
     this.http = serviceManager.getService(HttpServiceInterface);
     this.config = serviceManager.getService(ConfigServiceInterface);
+    this.error = serviceManager.getService(ErrorService);
   }
 
   search(params){
@@ -40,7 +41,13 @@ export class ManagedServiceServiceProvider extends IManagedService{
           return ManagedService.fromData(elem);
         });
       }
-    );
+    ).catch( (error) => {
+      console.log(error, error.ok);
+      window.lastError = error;
+      let errorEvent = new ErrorEvent("GET_SERVICE","FATAL", "Could not fetch services",error);
+      this.error.pushErrorEvent(errorEvent);
+      return Observable.of(errorEvent);
+    });
   }
 
   updateService(service){
@@ -57,7 +64,12 @@ export class ManagedServiceServiceProvider extends IManagedService{
     const endpoint = new URL(`service`,`${this.config.getItem("SIMS-BASE") || DEFAULT_API}`);
     return this.http.post(endpoint, service.toData()).map((data) => {
       return ManagedService.fromData(data);
+    }).catch( (error) => {
+      let errorEvent = new ErrorEvent("POST_SERVICE","FATAL","Could not post service",error);
+      this.error.pushErrorEvent(errorEvent);
+      return Observable.of(errorEvent);
     });
+
   }
 
   getService(id){

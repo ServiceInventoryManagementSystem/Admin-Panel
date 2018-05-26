@@ -26,6 +26,8 @@ export class ManagedService{
     this.serviceCharacteristic = [];
     this.relatedParty = [];
     this.serviceRelationship = [];
+    this.note = [];
+    this.place = [];
     this.serviceSpecification;
   }
 
@@ -62,10 +64,16 @@ export class ManagedService{
     })
 
     data.supportingResource.forEach((e) => {
-      service.addSupportingResource(new SupportingResource(e.id, e.href));
+      service.addSupportingResource(new SupportingResource(e.id, e.href, e.name));
     });
     data.relatedParty.forEach((e) => {
       service.addRelatedParty(new RelatedParty(e.id, e.role, e.href, e.name));
+    });
+    data.note.forEach((e) => {
+      service.addNote(new Note(e.author, e.date, e.text));
+    });
+    data.place.forEach((e) => {
+      service.addPlace(new Place(e.href, e.role));
     });
     let spec = data.serviceSpecification;
     if(spec){
@@ -99,6 +107,8 @@ export class ManagedService{
       serviceSpecification: this.serviceSpecification && this.serviceSpecification.toData(),
       supportingResource: this.supportingResource.map((e) => e.toData()),
       supportingService: this.supportingService.map((e) => e.toData()),
+      note: this.note.map((e) => e.toData()),
+      place: this.place.map((e) => e.toData())
     }
   }
 
@@ -120,6 +130,14 @@ export class ManagedService{
   
   addSupportingService(service){
     this.supportingService.push(service);
+  }
+
+  addNote(note){
+    this.note.push(note)
+  }
+
+  addPlace(place) {
+    this.place.push(place)
   }
 
   setServiceSpecification(spec){
@@ -153,6 +171,14 @@ export class ManagedService{
 
   getRelatedParty(){
     return this.relatedParty;
+  }
+
+  getNote(){
+    return this.note;
+  }
+
+  getPlace(){
+    return this.place;
   }
 
   getServiceCharacteristic(){
@@ -287,3 +313,35 @@ export class RelatedParty{
     }
   }
 }
+
+export class Note{
+  constructor(author, date, text){
+    this.author = author;
+    this.date = date;
+    this.text = text;
+  }
+
+  toData(){
+    return {
+      author: this.author,
+      date: this.date,
+      text: this.text
+    }
+  }
+}
+
+export class Place{
+  constructor(href, role){
+    this.href = href;
+    this.role = role;
+  }
+
+  toData(){
+    return {
+      href: this.href,
+      role: this.role
+    }
+  }
+}
+
+

@@ -31,10 +31,30 @@ table{
 }
 
 .modalIcon {
-  float:right !important;
-  display: inline-block !important;
-  margin-right: 15%;
+  flex: 1;
+  padding: 0.2em;
   font-size: 100% !important;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconP{
+    width: 40%;
+    margin: 0 auto;
+}
+
+.col {
+  flex: 1;
+  padding: 0.2em;
+}
+
+.statusText {
+  width: 100%;
+  text-align: center;
 }
 
 .modalList{

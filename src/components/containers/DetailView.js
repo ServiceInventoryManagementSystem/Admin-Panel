@@ -8,6 +8,7 @@ import {Redirect} from 'react-router'
 import _s from 'assets/css/DetailView.css';
 
 import { Link } from 'react-router-dom';
+import { spawn } from 'child_process';
 
 
 export class DetailView extends Component {
@@ -61,31 +62,22 @@ export class DetailView extends Component {
 
         let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-        const partyList =[];
-        for (let party of this.state.service.getRelatedParty()){
-                partyList.push(
-                <ul style = {{listStyleType: "none"}}>
-                <li>NAME: {party.name}</li>
-                <li>ROLE: {party.role}</li>
-                <li>HREF: {party.href}</li>
-                </ul>
-            )
-        }
         const detailStyle = {
             page: {
                 padding: '2em',
                 backgroundColor: '#fbfff0',
                 height: '100%',
                 position: 'relative',
+
             },
             basic: {
                 width: '30%',
-                height: '280px',
                 marginLeft: '2%',
                 marginRight: '2%',
                 display: 'inline-block',
                 position: 'static',
                 backgroundColor: lightGreen100,
+                padding: '1em',
             },
             serviceSpec: {
                 width: '20%',
@@ -94,6 +86,7 @@ export class DetailView extends Component {
                 display: 'inline-block',
                 position: 'absolute',
                 backgroundColor: lightGreen100,
+                padding: '1em',
             },
             relatedParty: {
                 marginTop: '0',
@@ -103,6 +96,7 @@ export class DetailView extends Component {
                 marginLeft: '22%',
                 position: 'absolute',
                 backgroundColor: lightGreen100,
+                padding: '1em',
             },
             supportService: {
                 width: '46%',
@@ -110,6 +104,7 @@ export class DetailView extends Component {
                 position: 'static',
                 display: 'inline-block',
                 backgroundColor: lightGreen100,
+                padding: '1em',
             },
             supportResource: {
                 width: '47%',
@@ -117,7 +112,23 @@ export class DetailView extends Component {
                 position: 'absolute',
                 display: 'inline-block',
                 backgroundColor: lightGreen100,
+                padding: '1em',
             },
+            note: {
+                width: '46%',
+                margin: '2%',
+                position: 'static',
+                display: 'inline-block',
+                backgroundColor: lightGreen100,
+            },
+            place: {
+                width: '47%',
+                marginTop: '2%',
+                position: 'absolute',
+                display: 'inline-block',
+                backgroundColor: lightGreen100,
+            },
+
             headerCaptions: {
                 backgroundColor: lightGreen600,
                 marginTop: '0',
@@ -137,6 +148,7 @@ export class DetailView extends Component {
                 fontWeight: '200',
                 fontFamily: 'roboto',
                 textDecoration: 'none',
+                overflowWrap: 'break-word',
             },
             deleteButton: {
                 marginRight: '5%',
@@ -161,29 +173,61 @@ export class DetailView extends Component {
 
         let serviceSpec = this.state.service.getServiceSpecification();
 
+        const partyList =[];
+        for (let party of this.state.service.getRelatedParty()){
+          partyList.push(
+            <ul style = {{listStyleType: "none"}}>
+              <li>NAME: {party.name}</li>
+              <li>ROLE: {party.role}</li>
+              <li>HREF: {party.href}</li>
+            </ul>
+          )
+        }
 
         const supportingServices = [];
         for (let supp of this.state.service.getSupportingService()){
-            supportingServices.push(
-                <ul style = {{listStyleType: "none"}}>
-                <li>ID: {supp.id}</li>
-                <li>HREF: {supp.href}</li>
-                <li>Name: {supp.name}</li> 
-                <li>Category: {supp.category}</li>
-                </ul>           
-            )
+          supportingServices.push(
+              <ul style = {{listStyleType: "none"}}>
+              <li>ID: {supp.id}</li>
+              <li>HREF: {supp.href}</li>
+              <li>Name: {supp.name}</li>
+              <li>Category: {supp.category}</li>
+              </ul>
+          )
         }
 
         const supportingResources = [];
         for (let res of this.state.service.getSupportingResource()){
-            supportingResources.push(
-                <ul style = {{listStyleType: "none"}}>
-                <li>ID:{res.id}</li>
-                <li>HREF:{res.href}</li>
-                <li>Name: {res.name}</li>
-                </ul>
-            )
+          supportingResources.push(
+              <ul style = {{listStyleType: "none"}}>
+              <li>ID:{res.id}</li>
+              <li>HREF:{res.href}</li>
+              <li>Name: {res.name}</li>
+              </ul>
+          )
         }
+
+        const note = [];
+        for (let not of this.state.service.getNote()){
+          note.push(
+            <ul style = {{listStyleType: "none"}}>
+              <li>Author:{not.author}</li>
+              <li>Date:{not.date}</li>
+              <li>Text: {not.text}</li>
+            </ul>
+          )
+        }
+
+        const place = [];
+        for (let plac of this.state.service.getPlace()){
+          place.push(
+            <ul style = {{listStyleType: "none"}}>
+              <li>HREF:{plac.href}</li>
+              <li>Role: {plac.role}</li>
+            </ul>
+          )
+        }
+
 
         return(
             <Paper style={detailStyle.page}>
@@ -213,13 +257,14 @@ export class DetailView extends Component {
                     <h4 style={detailStyle.headerCaptions}>BASIC:</h4>
                     <ul style = {{listStyleType: "none"}}>
                         <li>ID: <u style={detailStyle.contentText}>{this.state.service.id}</u></li>
-                        <li>DESCRIPTION: <u style={detailStyle.contentText}>{this.state.service.description}</u> </li>
+                        <li>DESCRIPTION: <u style={detailStyle.contentText}> <br/>{this.state.service.description.split("\n").map((a) => <span>{a} <br/></span>)}</u> </li>
                         <li>STATUS: <u style={detailStyle.contentText}>{this.state.service.state}</u></li>
+                        <li>TYPE: <u style={detailStyle.contentText}>{this.state.service.type}</u></li>
                         <li>IS SERVICE ENABLED: <u style={detailStyle.contentText}>{this.state.service.isServiceEnabled ? 'Yes' : 'No'}</u> </li>
                         <li>CATEGORY: <u style={detailStyle.contentText}>{this.state.service.category}</u></li>
-                        <li>ORDER DATE: <u style={detailStyle.contentText}>{this.state.service.orderDate ? this.state.service.orderDate.toLocaleDateString('en-US', options) : "None"}</u></li>
-                        <li>START DATE: <u style={detailStyle.contentText}>{this.state.service.startDate ? this.state.service.startDate.toLocaleDateString('en-US', options) : "None"}</u></li>
-                        <li>END DATE: <u style={detailStyle.contentText}>{this.state.service.endDate ? this.state.service.endDate.toLocaleDateString('en-US', options): "None"}</u></li>
+                        <li>ORDER DATE: <u style={detailStyle.contentText}><br/>{this.state.service.orderDate ? this.state.service.orderDate.toLocaleDateString('en-US', options) : "None"}</u></li>
+                        <li>START DATE: <u style={detailStyle.contentText}><br/>{this.state.service.startDate ? this.state.service.startDate.toLocaleDateString('en-US', options) : "None"}</u></li>
+                        <li>END DATE: <u style={detailStyle.contentText}><br/>{this.state.service.endDate ? this.state.service.endDate.toLocaleDateString('en-US', options): "None"}</u></li>
                         <li>START MODE: <u style={detailStyle.contentText}>{this.state.service.startMode}</u></li>
                         <li>IS STATEFUL: <u style={detailStyle.contentText}>{this.state.service.isStateful ? 'Yes' : 'No'}</u></li>
                     </ul>
@@ -254,6 +299,19 @@ export class DetailView extends Component {
                 <h4 style={detailStyle.headerCaptions}>SUPPORTING RESOURCE:</h4>
                 {supportingResources}
                 </Paper>
+                </div>
+
+                <div>
+                  <Paper style={detailStyle.note}>
+                    <h4 style={detailStyle.headerCaptions}>Note: </h4>
+                    {note}
+                  </Paper>
+
+                  <Paper style={detailStyle.place}>
+                    <h4 style={detailStyle.headerCaptions}>Place: </h4>
+                    {place}
+                  </Paper>
+
                 </div>
             </Paper>
         );
