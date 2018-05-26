@@ -4,6 +4,8 @@ import Paper from 'material-ui/Paper';
 import {List, ListItem} from 'material-ui/List';
 import {lightGreen300, lightGreen400, red700, black} from 'material-ui/styles/colors';
 
+import InfiniteScroll from 'react-infinite-scroller';
+
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import {Observable, Subject, BehaviorSubject} from 'rxjs';
@@ -306,32 +308,37 @@ export class AdminPage extends Component {
           }} label="Example data" primary={true}/> : null}
 
           <br />
-          <Table allRowsSelected = {false} onCellClick = {(row)=> this.handleClickTable(this.state.services[row])}>
-            <TableHeader adjustForCheckbox = {false} displaySelectAll = {false} style = {TableStyle.header}>
-              <TableRow style={TableStyle.header} onCellClick={(event,_,idx) => {
-                const columns = {
-                  [1]: "id",
-                  [6]: "state",
-                  [5]: "category",                   
-                }
-                if(idx in columns){
-                  this.changeSorting(columns[idx]);
-                }
-              }}>
-                    <TableHeaderColumn className = {_s.tableHeader} style={TableStyle.header}>ID ↑↓</TableHeaderColumn>
-                    <TableHeaderColumn style={TableStyle.header}>NAME</TableHeaderColumn>
-                    <TableHeaderColumn style={TableStyle.header}>HREF</TableHeaderColumn>
-                    <TableHeaderColumn style={TableStyle.header}>HAS STARTED</TableHeaderColumn>
-                    <TableHeaderColumn className = {_s.tableHeader} style={TableStyle.header}>CATEGORY ↑↓</TableHeaderColumn>
-                    <TableHeaderColumn className = {_s.tableHeader} style={TableStyle.header}>STATE ↑↓</TableHeaderColumn>
+          <InfiniteScroll
+            loadMore={console.log}
+            hasMore={true}
+          >
+            <Table allRowsSelected = {false} onCellClick = {(row)=> this.handleClickTable(this.state.services[row])}>
+              <TableHeader adjustForCheckbox = {false} displaySelectAll = {false} style = {TableStyle.header}>
+                <TableRow style={TableStyle.header} onCellClick={(event,_,idx) => {
+                  const columns = {
+                    [1]: "id",
+                    [6]: "state",
+                    [5]: "category",                   
+                  }
+                  if(idx in columns){
+                    this.changeSorting(columns[idx]);
+                  }
+                }}>
+                      <TableHeaderColumn className = {_s.tableHeader} style={TableStyle.header}>ID ↑↓</TableHeaderColumn>
+                      <TableHeaderColumn style={TableStyle.header}>NAME</TableHeaderColumn>
+                      <TableHeaderColumn style={TableStyle.header}>HREF</TableHeaderColumn>
+                      <TableHeaderColumn style={TableStyle.header}>HAS STARTED</TableHeaderColumn>
+                      <TableHeaderColumn className = {_s.tableHeader} style={TableStyle.header}>CATEGORY ↑↓</TableHeaderColumn>
+                      <TableHeaderColumn className = {_s.tableHeader} style={TableStyle.header}>STATE ↑↓</TableHeaderColumn>
 
-                </TableRow>
-            </TableHeader>
-            
-            <TableBody style={TableStyle.rows} displayRowCheckbox = {false}>
+                  </TableRow>
+              </TableHeader>
+              
+              <TableBody style={TableStyle.rows} displayRowCheckbox = {false}>
                 {serviceElements}
-            </TableBody>
-          </Table>
+              </TableBody>
+            </Table>
+          </InfiniteScroll>
           <Snackbar
             open={this.state.lastError != null}
             message={this.state.lastError instanceof Error ? this.state.lastError.toString() : ""}

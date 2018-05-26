@@ -16,29 +16,16 @@ export class ManagedServiceServiceProvider extends IManagedService{
     this.error = serviceManager.getService(ErrorService);
   }
 
-  search(params){
+  search(params, page=0, limit=100, count=1){
     let endpoint = new URL('service',`${this.config.getItem("SIMS-BASE") || DEFAULT_API}`);
+    params.page = page;
+    params.limit = limit;
     const searchParams = new URLSearchParams(params);
     endpoint = new URL(`?${searchParams.toString()}`,endpoint);
     return this.http.get(endpoint).map(
       (services) => {
         return services.map(elem => {
           return ManagedService.fromData(elem)
-        });
-      }
-    )
-  }
-
-
-
-
-  getServices(){
-    // May want to move url to argument
-    const endpoint = new URL('service',`${this.config.getItem("SIMS-BASE") || DEFAULT_API}`);
-    return this.http.get(endpoint).map(
-      (services) => {
-        return services.map(elem => {
-          return ManagedService.fromData(elem);
         });
       }
     ).catch( (error) => {
@@ -48,6 +35,12 @@ export class ManagedServiceServiceProvider extends IManagedService{
       this.error.pushErrorEvent(errorEvent);
       return Observable.of(errorEvent);
     });
+  }
+
+  getServices(page=0, limit=100, count=1){
+    // May want to move url to argument
+    const endpoint = new URL('service',`${this.config.getItem("SIMS-BASE") || DEFAULT_API}`);
+    return this.search({}, page, limit, count);
   }
 
   updateService(service){
