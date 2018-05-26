@@ -17,6 +17,8 @@ export class ManagedServiceServiceProvider extends IManagedService{
   }
 
   search(params, page=0, limit=100, count=1){
+    if(count<=0){return []}
+    
     let endpoint = new URL('service',`${this.config.getItem("SIMS-BASE") || DEFAULT_API}`);
     params.page = page;
     params.limit = limit;
@@ -34,6 +36,11 @@ export class ManagedServiceServiceProvider extends IManagedService{
       let errorEvent = new ErrorEvent("GET_SERVICE","FATAL", "Could not fetch services",error);
       this.error.pushErrorEvent(errorEvent);
       return Observable.of(errorEvent);
+    }).flatMap((result) => {
+      if(result.length > 0){
+        return this.search(params, page++, limit, count--);
+      }
+      return Observable.of(result);
     });
   }
 
