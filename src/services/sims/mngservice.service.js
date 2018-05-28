@@ -17,8 +17,8 @@ export class ManagedServiceServiceProvider extends IManagedService{
   }
 
   search(params, page=0, limit=100, count=1){
-    if(count<=0){return []}
-    
+    if(count<=0){return [];}
+
     let endpoint = new URL('service',`${this.config.getItem("SIMS-BASE") || DEFAULT_API}`);
     params.page = page;
     params.limit = limit;
