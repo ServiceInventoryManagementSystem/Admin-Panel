@@ -3,7 +3,7 @@ const packager = require('electron-packager')
 options = {
   dir: './build',
   asar: true,
-  name: "SISM Admin",
+  name: "SIMS Admin",
   out: "./electron-app",
   overwrite: true
 }
